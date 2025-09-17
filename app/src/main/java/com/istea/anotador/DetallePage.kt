@@ -17,7 +17,7 @@ import com.istea.anotador.ui.theme.AnotadorTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetallePage(texto: String) {
+fun DetallePage(tarea: Tarea) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -32,7 +32,10 @@ fun DetallePage(texto: String) {
     ){ innerPadding ->
         Column( modifier = Modifier.padding(innerPadding)) {
             Text(
-                text = texto,
+                text = tarea.titulo,
+            )
+            Text(
+                text = tarea.descripcion,
             )
         }
 
@@ -43,6 +46,6 @@ fun DetallePage(texto: String) {
 @Composable
 fun DetallePagePreview() {
     AnotadorTheme {
-        DetallePage("jojo")
+        DetallePage(Tarea(titulo = "Tarea 1", descripcion = "Descripción de la tarea 1"))
     }
 }
